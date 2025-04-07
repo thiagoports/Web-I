@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Cliente{% endblock %}
+
+{% block content %}
+<div class="flex justify-center pt-8">
+    <div class="bg-gray-900 text-white p-8 rounded shadow-md w-full max-w-xl">
+        <h2 class="text-2xl font-bold mb-6 text-center">Registrar Cliente</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="id_full_name" class="block mb-1">Nome Completo</label>
+                {{ form.full_name }}
+            </div>
+            <div class="mb-4">
+                <label for="id_email" class="block mb-1">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-4">
+                <label for="id_born_date" class="block mb-1">Data de Nascimento</label>
+                {{ form.born_date }}
+            </div>
+            <div class="mb-6">
+                <label class="inline-flex items-center">
+                    {{ form.is_active }}
+                    <span class="ml-2">Ativo</span>
+                </label>
+            </div>
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full">Salvar Cliente</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
